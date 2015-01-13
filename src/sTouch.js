@@ -8,5 +8,7 @@
     var ua = window.navigator.userAgent;
     var isIOS = (/IOS/gi).test(ua),
         isAndriod = (/andriod/gi).test(ua),
-        isMobile = isIOS || isAndriod;
+        isMobile = isIOS || isAndriod,
+        isPC = !isMobile;
 })(window);
+
