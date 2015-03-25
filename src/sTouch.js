@@ -12,19 +12,15 @@ void function(window,sTouch){
     } else{
         sTouch(window,window.document);
     }
-
 }(window,function (w,doc,undefined){
     'use strict';
-
     var ua = w.navigator,
         isAndroid = /Android/gi.test(ua),
         isIPhone = /iPhone/gi.test(ua),
         isIpad = /iPad/gi.test(ua),
         isMobile = isAndroid || isIPhone || isIpad;
     var hasTouch = "ontouchstart" in w,testEle = doc.createElement('div');
-
     if(!hasTouch) return;
-
     var sTouchEvt = "tap,doubleTap,singleTap,longTap,swipe,swipeLeft,swipeRight,swipeUp,swipeDown";
 
     //原生addEventListener劫持
@@ -40,12 +36,9 @@ void function(window,sTouch){
                 oriAddEvent.call(selfELe,type,callback,capture);
 
             }else{ //设定范围内事件处理
-
                 oriAddEvent.call(selfELe,type,callback,capture);
-
                 //初始化事件对象
                 var evtObj = new sEvent(type,selfELe);
-
                 var touchStamp = 0,cgStamp=0,oriX= 0,oriY= 0,
                     changeX=0,changeY= 0,isDrag=false,deltaX= 0,deltaY= 0,delta,
                     isSwipe=false;
@@ -67,7 +60,6 @@ void function(window,sTouch){
                         changeX = crtX - oriX;
                         changeY = crtY - oriY;
                     }
-
                 })
 
                 oriAddEvent.call(selfELe,"touchend",function(e){
@@ -75,15 +67,11 @@ void function(window,sTouch){
                     deltaX = Math.abs(changeX);
                     deltaY = Math.abs(changeY);
                     delta = Math.sqrt(Math.pow(deltaX,2)+Math.pow(deltaY,2));
-
-
                     if(type === "tap" && deltaX < 30 && deltaY < 30){
                         //tap间隔时限符合则触发tap deltaX < 30 && deltaY < 30
                         evtObj.fireEvent();
                     }else if(type.indexOf("swipe") > -1){
-
                         isSwipe = deltaX > 30 || deltaY > 30;
-
                         if(type === "swipe" && isSwipe ){
                             //swipe (Math.abs(touch.x1 - touch.x2) > 30) ||(Math.abs(touch.y1 - touch.y2) > 30)
                             isSwipe = true;
@@ -136,7 +124,6 @@ void function(window,sTouch){
             //初始化自定义事件
             this.evt.initUIEvent(this.type, true, true,doc.defaultView);
         },
-
         fireEvent : function(){
             this.fireEle.dispatchEvent(this.evt);
         }
