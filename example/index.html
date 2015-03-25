@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0">
+    <style>
+        body{
+            background-color: #DCEDFF;
+        }
+        #test2,#test1{
+            border: 2px solid #99abbf;
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            background-color: #FFF;
+            text-align: center;
+            line-height: 150px;
+            color: #bcbcff;
+        }
+        #test1{
+            border: 2px solid #C0C1C2;;
+            background-color: #DFF6FF;
+        }
+        #console{
+            width: 100%;
+            height: 30px;
+            overflow-y: auto;
+            border: 2px solid #F6F6F6;
+            background-color: #E3EBF6;
+            color: #565656;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+    <title>sTouch test</title>
+
+</head>
+<body>
+<div id="console"></div>
+<div id="test1">test1</div>
+
+<div id="test2">test2</div>
+<script type="text/javascript" src="../src/sTouch.js"></script>
+<script type="text/javascript">
+    var testdiv = document.querySelector("#test1");
+    var testdiv2 = document.querySelector("#test2");
+    var conD = document.querySelector("#console");
+
+
+    testdiv.addEventListener("tap",function(e){
+        console.log(e.target.id+"----tap");
+        conD.innerHTML = e.target.id+"----tap";
+    },false);
+
+    testdiv.addEventListener("longTap",function(e){
+        console.log(e.target.id+"----longTap");
+        conD.innerHTML = e.target.id+"----longTap";
+    },false);
+
+    testdiv.addEventListener("swipe",function(e){
+        console.log(e.target.id+"----swipe");
+        conD.innerHTML = e.target.id+"----swipe";
+    },false);
+
+    testdiv.addEventListener("swipeLeft",function(e){
+        console.log(e.target.id+"----swipeLeft");
+        conD.innerHTML = e.target.id+"----swipeLeft";
+    },false);
+    testdiv.addEventListener("swipeRight",function(e){
+        console.log(e.target.id+"----swipeRight");
+        conD.innerHTML = e.target.id+"----swipeRight";
+    },false);
+    testdiv.addEventListener("swipeUp",function(e){
+        console.log(e.target.id+"----swipeUp");
+        conD.innerHTML = e.target.id+"----swipeUp";
+    },false);
+    testdiv.addEventListener("swipeDown",function(e){
+        console.log(e.target.id+"----swipeDown");
+        conD.innerHTML = e.target.id+"----swipeDown";
+    },false);
+
+
+
+    testdiv2.addEventListener("tap",function(e){
+        console.log(e.target.id+"----tap");
+        conD.innerHTML = e.target.id+"----tap";
+    },false);
+
+    testdiv2.addEventListener("longTap",function(e){
+        console.log(e.target.id+"----longTap");
+        conD.innerHTML = e.target.id+"----longTap";
+    },false);
+
+    testdiv2.addEventListener("swipe",function(e){
+        console.log(e.target.id+"----swipe");
+        conD.innerHTML = e.target.id+"----swipe";
+    },false);
+
+    testdiv2.addEventListener("swipeLeft",function(e){
+        console.log(e.target.id+"----swipeLeft");
+        conD.innerHTML = e.target.id+"----swipeLeft";
+    },false);
+    testdiv2.addEventListener("swipeRight",function(e){
+        console.log(e.target.id+"----swipeRight");
+        conD.innerHTML = e.target.id+"----swipeRight";
+    },false);
+    testdiv2.addEventListener("swipeUp",function(e){
+        console.log(e.target.id+"----swipeUp");
+        conD.innerHTML = e.target.id+"----swipeUp";
+    },false);
+    testdiv2.addEventListener("swipeDown",function(e){
+        console.log(e.target.id+"----swipeDown");
+        conD.innerHTML = e.target.id+"----swipeDown";
+    },false);
+
+
+    testdiv.addEventListener("touchstart",function(e){
+        e.preventDefault();
+    },false);
+    testdiv2.addEventListener("touchstart",function(e){
+        e.preventDefault();
+    },false);
+
+
+    /*testdiv.addEventListener("click",function(e){
+        console.log("click");
+    },false);*/
+</script>
+</body>
+</html>
