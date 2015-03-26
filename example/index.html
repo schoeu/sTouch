@@ -46,8 +46,7 @@
     var testdiv2 = document.querySelector("#test2");
     var conD = document.querySelector("#console");
 
-
-   /* testdiv.addEventListener("tap",function(e){
+    /*testdiv.addEventListener("tap",function(e){
         console.log(e.target.id+"----tap");
         conD.innerHTML = e.target.id+"----tap";
     },false);
@@ -111,8 +110,7 @@
     testdiv2.addEventListener("swipeDown",function(e){
         console.log(e.target.id+"----swipeDown");
         conD.innerHTML = e.target.id+"----swipeDown";
-    },false);
-*/
+    },false);*/
 
     testdiv.addEventListener("touchstart",function(e){
         e.preventDefault();
@@ -121,7 +119,7 @@
         e.preventDefault();
     },false);
 
-    testdiv.addEventListener("DOMContentLoaded",function(e){
+    testdiv.addEventListener("click",function(e){
         //console.log("loaded");
         conD.innerHTML = e.target.id+"----click";
     },false);

@@ -39,6 +39,7 @@ void function(window,sTouch){
                 oriAddEvent.call(selfELe,type,callback,capture);
                 //初始化事件对象
                 var evtObj = new sEvent(type,selfELe);
+
                 var touchStamp = 0,cgStamp=0,oriX= 0,oriY= 0,
                     changeX=0,changeY= 0,isDrag=false,deltaX= 0,deltaY= 0,delta,
                     isSwipe=false;
@@ -109,7 +110,6 @@ void function(window,sTouch){
     }
 
     //事件处理系统
-    var evts = [];
     var sEvent = function(type,ele){
         this.type = type;
         this.fireEle = ele;
