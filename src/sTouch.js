@@ -22,7 +22,13 @@ void function(window,sTouch){
     var hasTouch = "ontouchstart" in w,testEle = doc.createElement('div');
     if(!hasTouch) return;
     var sTouchEvt = "tap,doubleTap,singleTap,longTap,swipe,swipeLeft,swipeRight,swipeUp,swipeDown";
-
+    
+    
+    /**
+    * 当时为了用原生addEventListener方法绑定自定义事件，竟然这样实现的，醉醉的...
+    * 现在的一些库基本都是自己实现了on，off等方法。
+    * 之后改一版吧
+    */
     //原生addEventListener劫持
     if(HTMLElement.prototype.addEventListener){
         var oriAddEvent = HTMLElement.prototype.addEventListener;
