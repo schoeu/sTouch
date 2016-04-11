@@ -136,4 +136,3 @@ void function (window,sTouch){
         }
     };
 });
-
