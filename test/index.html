@@ -40,13 +40,18 @@
 <div id="test1">test1</div>
 
 <div id="test2">test2</div>
-<script type="text/javascript" src="../src/sTouch.js"></script>
+<script type="text/javascript" src="../src/sTouch-pro.js"></script>
 <script type="text/javascript">
     var testdiv = document.querySelector("#test1");
     var testdiv2 = document.querySelector("#test2");
     var conD = document.querySelector("#console");
 
-    testdiv.addEventListener("tap",function(e){
+    $('#test1').on('tap', function (e) {
+        console.log(e.target.id+"----tap");
+        conD.innerHTML = e.target.id+"----tap";
+    });
+
+    /*testdiv.addEventListener("tap",function(e){
         console.log(e.target.id+"----tap");
         conD.innerHTML = e.target.id+"----tap";
     },false);
@@ -77,7 +82,7 @@
         console.log(e.target.id+"----swipeDown");
         conD.innerHTML = e.target.id+"----swipeDown";
     },false);
-
+*/
 
 
     testdiv2.addEventListener("tap",function(e){
