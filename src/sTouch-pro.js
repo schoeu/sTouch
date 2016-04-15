@@ -70,29 +70,29 @@ void function (window,sTouch){
                 delta = Math.sqrt(Math.pow(deltaX,2)+Math.pow(deltaY,2));
                 if (deltaX < 30 && deltaY < 30){
                     //tap间隔时限符合则触发tap deltaX < 30 && deltaY < 30
-                    me._trigger('tap');
+                    me._trigger('tap', e);
                     if (cgStamp > 750 && delta >= 0 && delta <= 250) {
-                        me._trigger('longTap');
+                        me._trigger('longTap', e);
                     }
                 }
                 else if (deltaX > 30 || deltaY > 30) {
-                    me._trigger('swipe');
+                    me._trigger('swipe', e);
 
                     if (changeX < -30 && changeY < 100) {
                         //swipeLeft
-                        me._trigger('swipeLeft');
+                        me._trigger('swipeLeft', e);
                     }
                     if (changeX > 30  && changeY < 100) {
                         //swipeRight
-                        me._trigger('swipeRight');
+                        me._trigger('swipeRight', e);
                     }
                     if (changeX < 100 && changeY < -30) {
                         //swipeUp
-                        me._trigger('swipeUp');
+                        me._trigger('swipeUp', e);
                     }
                     if(changeX < 100 && changeY > 30){
                         //swipeDown
-                        me._trigger('swipeDown');
+                        me._trigger('swipeDown', e);
                     }
                 }
 

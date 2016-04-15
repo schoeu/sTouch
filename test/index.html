@@ -47,32 +47,32 @@
     var conD = document.querySelector("#console");
 
     $('#test1').on('tap', function (e) {
-        console.log(e+"----tap");
-        conD.innerHTML = "----tap";
+        console.log(e.target.id+"----tap");
+        conD.innerHTML = e.target.id + "----tap";
     });
     $('#test1').on('longTap', function (e) {
         console.log(e+"----longTap");
-        conD.innerHTML = "----longTap";
+        conD.innerHTML = e.target.id + "----longTap";
     });
     $('#test1').on('swipe', function (e) {
         console.log(e+"----swipe");
-        conD.innerHTML = "----swipe";
+        conD.innerHTML = e.target.id + "----swipe";
     });
     $('#test1').on('swipeLeft', function (e) {
         console.log(e+"----swipeLeft");
-        conD.innerHTML = "----swipeLeft";
+        conD.innerHTML = e.target.id + "----swipeLeft";
     });
     $('#test1').on('swipeRight', function (e) {
         console.log(e+"----swipeRight");
-        conD.innerHTML = "----swipeRight";
+        conD.innerHTML = e.target.id + "----swipeRight";
     });
     $('#test1').on('swipeUp', function (e) {
         console.log(e+"----swipeUp");
-        conD.innerHTML = "----swipeUp";
+        conD.innerHTML = e.target.id + "----swipeUp";
     });
     $('#test1').on('swipeDown', function (e) {
         console.log(e+"----swipeDown");
-        conD.innerHTML = "----swipeDown";
+        conD.innerHTML = e.target.id + "----swipeDown";
     });
 
     /*testdiv.addEventListener("tap",function(e){
@@ -106,7 +106,6 @@
         console.log(e.target.id+"----swipeDown");
         conD.innerHTML = e.target.id+"----swipeDown";
     },false);
-*/
 
 
     testdiv2.addEventListener("tap",function(e){
@@ -155,7 +154,7 @@
     testdiv2.addEventListener("click",function(e){
         conD.innerHTML = e.target.id+"----click";
     },false);
-
+     */
 
     /*testdiv.addEventListener("click",function(e){
         console.log("click");
