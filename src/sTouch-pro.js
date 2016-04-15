@@ -9,7 +9,7 @@ void function (window,sTouch){
 }(window, function (w, doc, undefined){
     'use strict';
 
-    var ua = w.navigator;
+    var ua = w.navigator.userAgent;
     var isAndroid = /Android/gi.test(ua);
     var isIPhone = /iPhone/gi.test(ua);
     var isIpad = /iPad/gi.test(ua);
@@ -21,21 +21,22 @@ void function (window,sTouch){
     }
 
     function STouch(ele) {
-        var ele = null;
         if (typeof ele === 'string') {
-            ele = doc.querySelector('ele');
+            ele = doc.querySelector(ele);
         }
         if (!ele instanceof HTMLElement) {
             throw new Error('wrong arguments');
         }
-        this.target = ele;
+        new T(ele);
+    }
 
+    function T(ele) {
+        this.target = ele;
         this._process();
     }
-    w.$= STouch;
 
     // 事件&逻辑处理
-    STouch.prototype = {
+    T.prototype = {
         _process: function () {
             var ele = this.target;
             var me = this;
@@ -144,5 +145,5 @@ void function (window,sTouch){
             }
         }
     };
-
+    w.$= STouch;
 });

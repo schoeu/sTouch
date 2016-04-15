@@ -10,15 +10,14 @@ void function (window,sTouch){
 }(window, function (w, doc, undefined){
     'use strict';
 
-    var ua = w.navigator;
+    var ua = w.navigator.userAgent;
     var isAndroid = /Android/gi.test(ua);
     var isIPhone = /iPhone/gi.test(ua);
     var isIpad = /iPad/gi.test(ua);
     var isMobile = isAndroid || isIPhone || isIpad;
-    var hasTouch = 'ontouchstart' in w;
     var sTouchEvt = 'tap,doubleTap,singleTap,longTap,swipe,swipeLeft,swipeRight,swipeUp,swipeDown';
 
-    if(!hasTouch) {
+    if(!isMobile) {
         return;
     }
 
