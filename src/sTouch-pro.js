@@ -14,7 +14,6 @@ void function (window,sTouch){
     var isIPhone = /iPhone/gi.test(ua);
     var isIpad = /iPad/gi.test(ua);
     var isMobile = isAndroid || isIPhone || isIpad;
-    var _events = {};
 
     if(!isMobile) {
         return;
@@ -27,11 +26,12 @@ void function (window,sTouch){
         if (!ele instanceof HTMLElement) {
             throw new Error('wrong arguments');
         }
-        new T(ele);
+        return new T(ele);
     }
 
     function T(ele) {
         this.target = ele;
+        this._events = {};
         this._process();
     }
 
@@ -68,38 +68,34 @@ void function (window,sTouch){
                 deltaX = Math.abs(changeX);
                 deltaY = Math.abs(changeY);
                 delta = Math.sqrt(Math.pow(deltaX,2)+Math.pow(deltaY,2));
-                if (type === 'tap' && deltaX < 30 && deltaY < 30){
+                if (deltaX < 30 && deltaY < 30){
                     //tap间隔时限符合则触发tap deltaX < 30 && deltaY < 30
                     me._trigger('tap');
+                    if (cgStamp > 750 && delta >= 0 && delta <= 250) {
+                        me._trigger('longTap');
+                    }
                 }
-                else if (type.indexOf('swipe') > -1) {
-                    isSwipe = deltaX > 30 || deltaY > 30;
-                    if (type === 'swipe' && isSwipe ){
-                        //swipe (Math.abs(touch.x1 - touch.x2) > 30) ||(Math.abs(touch.y1 - touch.y2) > 30)
-                        isSwipe = true;
-                        me._trigger('swipe');
-                    }
-                    if (type === 'swipeLeft' && changeX < -30 && changeY < 100) {
+                else if (deltaX > 30 || deltaY > 30) {
+                    me._trigger('swipe');
+
+                    if (changeX < -30 && changeY < 100) {
                         //swipeLeft
-                        isSwipe && me._trigger('swipeLeft');
+                        me._trigger('swipeLeft');
                     }
-                    if (type === 'swipeRight' && changeX > 30  && changeY < 100) {
+                    if (changeX > 30  && changeY < 100) {
                         //swipeRight
-                        isSwipe && me._trigger('swipeRight');
+                        me._trigger('swipeRight');
                     }
-                    if (type === 'swipeUp' && changeX < 100 && changeY < -30) {
+                    if (changeX < 100 && changeY < -30) {
                         //swipeUp
-                        isSwipe && me._trigger('swipeUp');
+                        me._trigger('swipeUp');
                     }
-                    if(type === 'swipeDown' && changeX < 100 && changeY > 30 ){
+                    if(changeX < 100 && changeY > 30){
                         //swipeDown
-                        isSwipe && me._trigger('swipeDown');
+                        me._trigger('swipeDown');
                     }
                 }
 
-                if (type === 'longTap' && cgStamp > 750 && delta >= 0 && delta <= 250) {
-                    me._trigger('longTap');
-                }
                 //恢复标识变量
                 changeX = changeY = deltaX = deltaY = delta = 0;
                 isDrag = false;

@@ -47,8 +47,32 @@
     var conD = document.querySelector("#console");
 
     $('#test1').on('tap', function (e) {
-        console.log(e.target.id+"----tap");
-        conD.innerHTML = e.target.id+"----tap";
+        console.log(e+"----tap");
+        conD.innerHTML = "----tap";
+    });
+    $('#test1').on('longTap', function (e) {
+        console.log(e+"----longTap");
+        conD.innerHTML = "----longTap";
+    });
+    $('#test1').on('swipe', function (e) {
+        console.log(e+"----swipe");
+        conD.innerHTML = "----swipe";
+    });
+    $('#test1').on('swipeLeft', function (e) {
+        console.log(e+"----swipeLeft");
+        conD.innerHTML = "----swipeLeft";
+    });
+    $('#test1').on('swipeRight', function (e) {
+        console.log(e+"----swipeRight");
+        conD.innerHTML = "----swipeRight";
+    });
+    $('#test1').on('swipeUp', function (e) {
+        console.log(e+"----swipeUp");
+        conD.innerHTML = "----swipeUp";
+    });
+    $('#test1').on('swipeDown', function (e) {
+        console.log(e+"----swipeDown");
+        conD.innerHTML = "----swipeDown";
     });
 
     /*testdiv.addEventListener("tap",function(e){
