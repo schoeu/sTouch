@@ -44,7 +44,7 @@ void function (window,sTouch){
                 changeX=0, changeY= 0, isDrag=false, deltaX= 0, deltaY= 0, delta,
                 isSwipe=false;
 
-            //touch事件中，根据条件触发不同的自定义事件
+            //touch事件中，检测事件
             ele.addEventListener('touchstart', function(e){
                 touchStamp = e.timeStamp;
                 isDrag = true;
@@ -114,7 +114,8 @@ void function (window,sTouch){
             }
             this._events[type].push(fn);
         },
-
+        
+        // 事件管理机制
         off: function (type, fn) {
             if(!this._events){
                 return;
@@ -141,5 +142,6 @@ void function (window,sTouch){
             }
         }
     };
-    w.$= STouch;
+    
+    !w.$ && (w.$ = STouch);
 });
