@@ -8,14 +8,12 @@ void function (window,sTouch){
 
 }(window, function (w, doc, undefined){
     'use strict';
-
+    
+    // 只限制IOS,安卓和IPAD 不科学
     var ua = w.navigator.userAgent;
-    var isAndroid = /Android/gi.test(ua);
-    var isIPhone = /iPhone/gi.test(ua);
-    var isIpad = /iPad/gi.test(ua);
-    var isMobile = isAndroid || isIPhone || isIpad;
+    var hasTouch = 'ontouchstart' in w;
 
-    if(!isMobile) {
+    if(!hasTouch) {
         return;
     }
 
@@ -76,6 +74,7 @@ void function (window,sTouch){
                     }
                 }
                 else if (deltaX > 30 || deltaY > 30) {
+                    // 所有的滑动都应该触发swipe
                     me._trigger('swipe', e);
 
                     if (changeX < -30 && changeY < 100) {
