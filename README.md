@@ -32,16 +32,6 @@ sTouch
         console.log(e.target.id+"----swipe");
     
     });
-    
-    // 引用sTouch版本
-    testdiv2.addEventListener("swipe",function(e){
-        
-       /**
-        * e {Object} 事件对象
-        **/ 
-        console.log(e.target.id+"----swipe");
-         
-    },false);
 
 ```
 
