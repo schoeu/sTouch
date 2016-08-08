@@ -22,15 +22,14 @@ sTouch
 
 ``` javascript
     
-    // 可以使用 'tap,doubleTap,singleTap,longTap,swipe,swipeLeft,swipeRight,swipeUp,swipeDown'事件
-    
     // 引用sTouch-pro版本
+    // 可以使用 'tap,doubleTap,singleTap,longTap,swipe,swipeLeft,swipeRight,swipeUp,swipeDown'事件
+
     $('#testdiv2').on('swipe', function (e){
         /**
         * e {Object} 事件对象
         **/ 
         console.log(e.target.id+"----swipe");
-    
     });
 
 ```
